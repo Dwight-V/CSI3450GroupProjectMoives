@@ -13,28 +13,30 @@ public class movie_upd extends HttpServlet
 			String query="";        
 			Connection con=null; 
           
-            String m_id = request.getParameter("m_id");
+			String m_id = request.getParameter("m_id");
 			String m_title = request.getParameter("m_title");
-			String m_date = request.getParameter("m_date");
+			String m_releaseDate = request.getParameter("m_releaseDate");
 			String m_synopsis = request.getParameter("m_synopsis");
 			String m_length = request.getParameter("m_length");
-			String rating_id = request.getParameter("rating_id");
+			String m_rating = request.getParameter("m_rating");
 			String cat_id = request.getParameter("cat_id");
+			String productionStatus = request.getParameter("productionStatus");
 
 		try
 		{			
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver()); 
-            con = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:orcl", "project", "project");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "C##CSI3450", "johnRing19841");
 	       	System.out.println("Congratulations! You are connected successfully.");      
      	}
         catch(SQLException e)
 		{	
-			System.out.println("Error: "+e);	
+			System.out.println("Error: "+ e);	
 		}
 		catch(Exception e) 
 		{
 			System.err.println("Exception while loading  driver");		
 		}
+
 	    try 
 		{
         	state4 = con.createStatement();
@@ -46,6 +48,7 @@ public class movie_upd extends HttpServlet
 		
 		response.setContentType("text/html");
 		PrintWriter out = null ;
+
 		try
 		{
 			out =  response.getWriter();
@@ -55,27 +58,30 @@ public class movie_upd extends HttpServlet
   			e.printStackTrace();
 		}
 		
-		query = "update  movie set m_title = '"+m_title+"', m_date = '"+m_date+"', m_length = '"+m_length+"', rating_id = '"+rating_id+"', cat_id = '"+cat_id+"', m_synopsis = '"+m_synopsis+"'	where m_id = '"+m_id+"'";
-		
-		out.println("<html><head><title>Movie has been updtated</title>");	 
+		query = "update movie set m_title = '"+m_title+"', m_releaseDate = DATE '"+m_releaseDate+"', m_synopsis = '"+m_synopsis+"', m_length = '"+m_length+"', m_rating = '"+m_rating+"', cat_id = '"+cat_id+"', productionStatus = '"+productionStatus+"' where m_id = '"+m_id+"'";
+
+	
+		out.println("<html><head><title>Movie has been updated</title>");	 
 		out.println("</head><body>");
 		
 		out.print( "<br /><b><center><font color=\"BLACK\"><H2>One Record has updated</H2></font>");
         out.println( "</center><br />" );
-       	try 
+       	
+		try 
 		{ 
-			result=state4.executeQuery(query);
-				
+			result = state4.executeQuery(query);
 	  	}
 		catch (SQLException e) 
 		{
 			System.err.println("SQLException while executing SQL Statement."); 
 		}
+
 		out.println("<center><table border=\"1\">"); 
 		out.println("<tr BGCOLOR=\"#cccccc\">");
           out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\"> </td>");
        // out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">movtitle</td>");
         out.println("</tr>");
+
 		try 
 		{ 
             while(result.next()) 
@@ -88,7 +94,7 @@ public class movie_upd extends HttpServlet
 	    }
 		catch (SQLException e) 
 		{
-			System.out.println("Resutset is not connected"); 
+			System.out.println("Resultset is not connected"); 
 		}
 
 		out.println("</table></CENTER>");
