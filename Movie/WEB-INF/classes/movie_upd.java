@@ -25,7 +25,7 @@ public class movie_upd extends HttpServlet
 		try
 		{			
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver()); 
-            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "C##Project", "project");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "C##project", "project");
 	       	System.out.println("Congratulations! You are connected successfully.");      
      	}
         catch(SQLException e)
@@ -71,17 +71,27 @@ public class movie_upd extends HttpServlet
 			countResult.next();
 			int rowCount = countResult.getInt(1);
 
-			//For executing the query, and recieving the result.
-			result = state4.executeQuery(query);
-
-			//If the movie table is empty, state that it is so. If not, state the movie entry has been deleted from the movie table.
 			if (rowCount == 0) {
+				//Movie table is empty. 
 				out.print( "<br /><b><center><font color=\"BLACK\"><H2>The movie table is empty</H2></font>");
 				out.println( "</center><br />" );
 			} else {
-				out.print( "<br /><b><center><font color=\"BLACK\"><H2>The movie entry has been updated</H2></font>");
-				out.println( "</center><br />" );
+				ResultSet test = state4.executeQuery("select m_id from movie where m_id = '" + m_id + "'");
+				if (test.next()) {
+					// Movie with given m_id exists
+					if (test.getInt(1) == Integer.parseInt(m_id)) {
+						out.print("<br /><b><center><font color=\"BLACK\"><H2>The movie entry has been updated.</H2></font>");
+						out.println("</center><br />");
+					}
+				} else {
+					// Movie with given m_id does not exist
+					out.print("<br /><b><center><font color=\"BLACK\"><H2>There is no such entry</H2></font>");
+					out.println("</center><br />");
+				}
 			}	
+
+			//For executing the query to update the movie entry.
+			result = state4.executeQuery(query);
 	  	}
 		catch (SQLException e) 
 		{
