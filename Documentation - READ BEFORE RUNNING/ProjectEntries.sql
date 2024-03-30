@@ -8,31 +8,31 @@ INSERT INTO movie (m_ID, m_title, m_releaseDate, m_synopsis, m_rating, m_length,
 VALUES (1, 'Generic Action Movie', DATE '2015-12-01', 'Generic action-packed storyline, filled to the brim with cliche one liners.', 
 'PG', 120, 'Action', 'Released on Blu-Ray');
 INSERT INTO movie (m_ID, m_title, m_releaseDate, m_synopsis, m_rating, m_length, cat_id, productionStatus) 
-VALUES (2, 'Generic Action Movie 2', '2022-02-14', 'Another generic action movie with even more cliche one liners.', 
+VALUES (2, 'Generic Action Movie 2', DATE '2022-02-14', 'Another generic action movie with even more cliche one liners.', 
 'PG', 120, 'Action', 'Screened in theatres');
 
 /*Produced by Joseph Lewis, Directed by Joseph Zimmer. Writers: Dimitri Rite. Actors: Jacob Rowe. Actresses: Ilya Rite.*/
 INSERT INTO movie (m_ID, m_title, m_releaseDate, m_synopsis, m_rating, m_length, cat_id, productionStatus) 
-VALUES (3, 'Generic Comedy Film', '2022-03-30', 'Filled with overused jokes so bad they circle back to becoming good.', 
+VALUES (3, 'Generic Comedy Film', DATE '2022-03-30', 'Filled with overused jokes so bad they circle back to becoming good.', 
 'R', 90, 'Comedy', 'Coming soon to theatres');
 
 
 /*Produced by Jane Doe, Directed by Shelby White. Writers: Dimitri Rite. Actors: Johnny Apple, Drew Chang. Actresses: Kate Lisbon, Angela Middleton.*/
 INSERT INTO movie (m_ID, m_title, m_releaseDate, m_synopsis, m_rating, m_length, cat_id, productionStatus) 
-VALUES (4, 'Generic Horror Flick', '2024-03-01', 'Classic horror with jump scares and everyone dead at the end.', 
+VALUES (4, 'Generic Horror Flick', DATE '2024-03-01', 'Classic horror with jump scares and everyone dead at the end.', 
 'R', 95, 'Horror', 'Screened in theatres');
 
 
 /*Produced by John Doe, Directed by Mark Hanks. Writer: Taylor Li. Actors: Jacob Rowe, Drew Chang. Actress: Angela Middleton, Ilya Rite.*/
 --Kate Lisbon will not be in any of these movies.
 INSERT INTO movie (m_ID, m_title, m_releaseDate, m_synopsis, m_rating, m_length, cat_id, productionStatus) 
-VALUES (5, 'Generic Animated Adventure', '2015-06-15', 'Fun-filled animated journey. We did not take acid while making this movie.', 
+VALUES (5, 'Generic Animated Adventure', DATE '2015-06-15', 'Fun-filled animated journey. We did not take acid while making this movie.', 
 'G', 110, 'Animation', 'Released on Blu-Ray');
 INSERT INTO movie (m_ID, m_title, m_releaseDate, m_synopsis, m_rating, m_length, cat_id, productionStatus) 
-VALUES (6, 'Generic Animated Adventure 2', '2017-06-15', 'Fun-filled animated journey, again, and better with twice the m_length!', 
+VALUES (6, 'Generic Animated Adventure 2', DATE '2017-06-15', 'Fun-filled animated journey, again, and better with twice the m_length!', 
 'G', 220, 'Animation', 'Released on Blu-Ray');
 INSERT INTO movie (m_ID, m_title, m_releaseDate, m_synopsis, m_rating, m_length, cat_id, productionStatus) 
-VALUES (7, 'Generic Animated Adventure 2 - Remastered', '2022-01-31', 'Fun-filled animated journey. A chance for redemption.', 
+VALUES (7, 'Generic Animated Adventure 2 - Remastered', DATE '2022-01-31', 'Fun-filled animated journey. A chance for redemption.', 
 'G', 60, 'Animation', 'Released on Blu-Ray');
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
