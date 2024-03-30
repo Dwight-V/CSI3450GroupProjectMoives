@@ -14,7 +14,6 @@
      <url-pattern>/movie_reg</url-pattern>
   </servlet-mapping>
   
-  
    <servlet>
      <servlet-name>movie_upd</servlet-name>
      <servlet-class>movie_upd</servlet-class>
@@ -24,7 +23,6 @@
      <url-pattern>/movie_upd</url-pattern>
   </servlet-mapping>
 
-  
  <servlet>
      <servlet-name>movieJdbc</servlet-name>
      <servlet-class>movieJdbc</servlet-class>
@@ -99,7 +97,6 @@
      <url-pattern>/role_reg</url-pattern>
   </servlet-mapping>
 
-
  <servlet>
      <servlet-name>roleJdbc</servlet-name>
      <servlet-class>roleJdbc</servlet-class>
@@ -129,6 +126,49 @@
      <servlet-name>role_upd</servlet-name>
      <url-pattern>/role_upd</url-pattern>
   </servlet-mapping>
+
+
+
+  <servlet>
+     <servlet-name>theatre_reg</servlet-name>
+     <servlet-class>theatre_reg</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+     <servlet-name>theatre_reg</servlet-name>
+     <url-pattern>/theatre_reg</url-pattern>
+  </servlet-mapping>
+
+ <servlet>
+     <servlet-name>theatreJdbc</servlet-name>
+     <servlet-class>theatreJdbc</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+     <servlet-name>theatreJdbc</servlet-name>
+     <url-pattern>/theatreJdbc</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+     <servlet-name>theatre_del</servlet-name>
+     <servlet-class>theatre_del</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+     <servlet-name>theatre_del</servlet-name>
+     <url-pattern>/theatre_del</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+     <servlet-name>theatre_upd</servlet-name>
+     <servlet-class>theatre_upd</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+     <servlet-name>theatre_upd</servlet-name>
+     <url-pattern>/theatre_upd</url-pattern>
+  </servlet-mapping>
+
 
  
   
