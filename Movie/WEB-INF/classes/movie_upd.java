@@ -25,7 +25,7 @@ public class movie_upd extends HttpServlet
 		try
 		{			
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver()); 
-            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "C##CSI3450", "johnRing19841");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "C##Project", "project");
 	       	System.out.println("Congratulations! You are connected successfully.");      
      	}
         catch(SQLException e)
