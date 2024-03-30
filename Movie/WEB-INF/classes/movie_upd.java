@@ -25,7 +25,7 @@ public class movie_upd extends HttpServlet
 		try
 		{			
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver()); 
-            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "project", "project");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "C##CSI3450", "johnRing19841");
 	       	System.out.println("Congratulations! You are connected successfully.");      
      	}
         catch(SQLException e)
@@ -63,13 +63,25 @@ public class movie_upd extends HttpServlet
 	
 		out.println("<html><head><title>Movie has been updated</title>");	 
 		out.println("</head><body>");
-		
-		out.print( "<br /><b><center><font color=\"BLACK\"><H2>One Record has updated</H2></font>");
-        out.println( "</center><br />" );
        	
 		try 
 		{ 
+			//For case where the movie table is empty.
+			ResultSet countResult = state4.executeQuery("select count(*) from movie");
+			countResult.next();
+			int rowCount = countResult.getInt(1);
+
+			//For executing the query, and recieving the result.
 			result = state4.executeQuery(query);
+
+			//If the movie table is empty, state that it is so. If not, state the movie entry has been deleted from the movie table.
+			if (rowCount == 0) {
+				out.print( "<br /><b><center><font color=\"BLACK\"><H2>The movie table is empty</H2></font>");
+				out.println( "</center><br />" );
+			} else {
+				out.print( "<br /><b><center><font color=\"BLACK\"><H2>The movie entry has been updated</H2></font>");
+				out.println( "</center><br />" );
+			}	
 	  	}
 		catch (SQLException e) 
 		{
