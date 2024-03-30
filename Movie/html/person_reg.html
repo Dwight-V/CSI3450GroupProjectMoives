@@ -1,40 +1,26 @@
-
-<head>
-	    <title>Movie Registration</title>
-	  </head>
-
+<!DOCTYPE html>
 <html>
-	  <body>
-	    <h2 align="left"><font color="#FF0000">Add a Person</font></h2>
-		<form method = "post" action = "/Movie/person_reg">
-	      <p>
-			ID: <font color = "#FF0000">*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>&nbsp;<input type = "text" name = "p_id" size="12">&nbsp;
-			First Name: <font color = "#FF0000">*</font> &nbsp; <input type = "text" name = "p_first" size="21">&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;
-			Last Name: <font color = "#FF0000">*</font> &nbsp; <input type = "text" name = "p_last" size="21">
-	      </p>
-	      <p>
-			Pay: &nbsp;&nbsp;&nbsp;$&nbsp;<input type = "text" name = "p_pay" size = "20">&nbsp;   
-	      </p>
-	      <p>Role:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	         <select size = "5" name = "role_id">
-	           <option value = "Producer">Producer</option>
-	           <option value = "Actor">Actor</option>
-	           <option value = "Actress">Actress</option>
-			   <option value = "Writer">Writer</option>
-	           <option value = "Director">Director</option>
-	         </select>
-	      </p>
-	      <p>
-	         &nbsp;
-	      </p>
-	      <p><input type = "submit" name = "Submit" value = "Submit">
-	         <input type = "reset" value = "Reset">
-	      </p>
-	    </form>
-	    <p><font color = "#FF0000">* required fields</font></p>
-	  	<p><a href="\Movie\index.html">
-		<img border="0" src="goback.JPG" width="41" height="66"></a></p>
-	  </body>
+<head>
+    <title>Person Registration</title>
+</head>
+<body>
+    <h2>Add a Person</h2>
+    <form method="post" action="/Movie/person_reg">
+        <p>ID: <font color = "#FF0000">*</font> <input type="text" name="p_id" size="12" required></p>
+        <p>First Name: <font color = "#FF0000">*</font> <input type="text" name="p_first" size="21" required></p>
+        Last Name: <font color = "#FF0000">*</font> <input type = "text" name = "p_last" size="21" required></p>
+        <p>Pay: $<input type="number" name="p_pay" size="20"></p>
+		<p>Role: <select size = "5" name = "role_id">
+			  <option value = "Producer">Producer</option>
+			  <option value = "Actor">Actor</option>
+			  <option value = "Actress">Actress</option>
+			  <option value = "Writer">Writer</option>
+			  <option value = "Director">Director</option>
+			</select>
+		 </p>
+        <p><input type="submit" value="Submit"> <input type="reset" value="Reset"></p>
+    </form>
+    <p><a href="/Movie/index.html">Go Back</a></p>
+</body>
 </html>
 
