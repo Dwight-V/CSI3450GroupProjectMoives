@@ -178,8 +178,8 @@ INSERT INTO director (dir_ID, dir_position, p_ID, m_ID) VALUES (1, 'Lead Directo
 -- Populate theatre-movie table
 
 /*Generic Sci-fi Thriller showing at two theaters at the same time*/
-INSERT INTO theatre_movie (t_m_ID, t_m_start, t_m_end, m_ID, t_ID) 
+INSERT INTO theatremovie (t_m_ID, t_m_start, t_m_end, m_ID, t_ID) 
 VALUES (1, TO_TIMESTAMP('2005-03-20 12:00', 'YYYY-MM-DD HH24:MI'), TO_TIMESTAMP('2005-03-20 14:00', 'YYYY-MM-DD HH24:MI'), 3, 1);
-INSERT INTO theatre_movie (t_m_ID, t_m_start, t_m_end, m_ID, t_ID) 
+INSERT INTO theatremovie (t_m_ID, t_m_start, t_m_end, m_ID, t_ID) 
 VALUES (2, TO_TIMESTAMP('2005-03-20 12:00', 'YYYY-MM-DD HH24:MI'), TO_TIMESTAMP('2005-03-20 14:00', 'YYYY-MM-DD HH24:MI'), 3, 1);
 
