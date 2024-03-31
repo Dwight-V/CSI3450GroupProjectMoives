@@ -13,8 +13,7 @@ public class movie_reg extends HttpServlet {
   }
 
   /** Process the HTTP Post request */
-  public void doPost(HttpServletRequest request, HttpServletResponse
-      response) throws ServletException, IOException {
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     response.setContentType("text/html");
     PrintWriter out = response.getWriter();
 
@@ -27,9 +26,9 @@ public class movie_reg extends HttpServlet {
     String m_rating = request.getParameter("m_rating");
     String cat_id = request.getParameter("cat_id");
     String productionStatus = request.getParameter("productionStatus");
-    
-    //Rid of the DATE at the start of the string
-    m_releaseDate = m_releaseDate.replaceAll("DATE","");
+
+    // Rid of the DATE at the start of the string
+    m_releaseDate = m_releaseDate.replaceAll("DATE", "");
 
     try {
 
@@ -37,15 +36,13 @@ public class movie_reg extends HttpServlet {
         out.println("Movie ID and title are required to add a movie.");
         return; // End the method
       }
-      
+
       storeMovie(m_id, m_title, m_releaseDate, m_synopsis, m_length, m_rating, cat_id, productionStatus);
 
       out.println(m_id + " " + m_title + " is now registered in the database");
-    }
-    catch(Exception ex) {
+    } catch (Exception ex) {
       out.println("\n Error: " + ex.getMessage());
-    }
-    finally {
+    } finally {
       out.close(); // Close stream
     }
   }
@@ -54,31 +51,29 @@ public class movie_reg extends HttpServlet {
   private void initializeJdbc() {
     try {
       // Declare driver and connection string
-     // String driver = "sun.jdbc.odbc.JdbcOdbcDriver";
-     // String connectionString = "jdbc:odbc:exampleMDBDataSource";
+      // String driver = "sun.jdbc.odbc.JdbcOdbcDriver";
+      // String connectionString = "jdbc:odbc:exampleMDBDataSource";
       // For MySQL
       // String driver = "com.mysql.jdbc.Driver";
       // String connectionString = "jdbc:mysql://localhost/test";
       // For Oracle
-       String driver = "oracle.jdbc.driver.OracleDriver";
-       
+      String driver = "oracle.jdbc.driver.OracleDriver";
+
       // Load the driver
       Class.forName(driver);
 
-    String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-    String user = "project"; 
-    String password = "project";
+      String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+      String user = "c##project";
+      String password = "project";
 
       // Connect to the database
-      Connection conn = DriverManager.getConnection
-        (url, user, password);
+      Connection conn = DriverManager.getConnection(url, user, password);
 
       // Create a Statement
       pstmt = conn.prepareStatement("insert into movie " +
-        "(m_id, m_title, m_releaseDate, m_synopsis, m_length, m_rating, "
-         + "cat_id, productionStatus) values (?, ?, ? , ?, ?, ?, ?, ?)");
-    }
-    catch (Exception ex) {
+          "(m_id, m_title, m_releaseDate, m_synopsis, m_length, m_rating, "
+          + "cat_id, productionStatus) values (?, ?, ? , ?, ?, ?, ?, ?)");
+    } catch (Exception ex) {
       ex.printStackTrace();
     }
   }
@@ -95,7 +90,7 @@ public class movie_reg extends HttpServlet {
     pstmt.setString(6, m_rating);
     pstmt.setString(7, cat_id);
     pstmt.setString(8, productionStatus);
-    
+
     pstmt.executeUpdate();
   }
 }
