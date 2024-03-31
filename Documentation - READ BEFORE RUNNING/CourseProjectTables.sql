@@ -79,29 +79,13 @@ CREATE TABLE director (
     CONSTRAINT fk_has_movieID_director FOREIGN KEY (m_ID) REFERENCES movie(m_ID)
 );
 
-CREATE TABLE theatre-movie (
+CREATE TABLE theatremovie (
     t_m_ID INT,
     t_m_start TIMESTAMP,
     t_m_end TIMESTAMP,
     m_ID INT,
     t_ID INT,
     PRIMARY KEY (t_m_ID, m_ID, t_ID),
-    CONSTRAINT fk_has_m_ID_theatre-movie FOREIGN KEY (m_ID) REFERENCES movie(m_ID),
-    CONSTRAINT fk_has_t_ID_theatre-movie FOREIGN KEY (t_ID) REFERENCES theatre(t_ID)
-);
-
-
---OLD DO NO IMPLEMENT
---OLD DO NO IMPLEMENT
---OLD DO NO IMPLEMENT
---OLD DO NO IMPLEMENT
- CREATE TABLE movie (
-    m_ID VARCHAR(12),
-    m_title VARCHAR(21),
-    m_Date VARCHAR(10),
-    m_synopsis VARCHAR(42),
-    m_length VARCHAR(20),
-    rating_id VARCHAR(20),
-    cat_ID VARCHAR(20),
-    PRIMARY KEY (m_ID)
+    CONSTRAINT fk_has_m_ID_theatremovie FOREIGN KEY (m_ID) REFERENCES movie(m_ID),
+    CONSTRAINT fk_has_t_ID_theatremovie FOREIGN KEY (t_ID) REFERENCES theatre(t_ID)
 );
