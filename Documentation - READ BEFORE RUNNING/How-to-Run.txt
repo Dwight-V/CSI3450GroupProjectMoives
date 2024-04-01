@@ -1,0 +1,46 @@
+------------------------- SETTING UP OUR ENVIRONMENT:
+Create a new user in SQL Plus:
+
+CREATE USER c##project IDENTIFIED BY project; 
+GRANT CREATE SESSION TO c##project;
+GRANT CREATE TABLE TO c##project;
+GRANT CREATE VIEW TO c##project;
+GRANT CREATE PROCEDURE TO c##project;
+GRANT CREATE SYNONYM TO c##project;
+GRANT CREATE TRIGGER TO c##project;
+GRANT CREATE SEQUENCE TO c##project;
+ALTER USER c##project QUOTA UNLIMITED ON USERS;
+connect c##project/project;
+
+------------------------- USING THE CORRECT TABLES:
+Create the tables used in our webapp in SQL Plus:
+
+DROP TABLE theatremovie;
+DROP TABLE theatre;
+DROP TABLE producer;
+DROP TABLE actor;
+DROP TABLE actress;
+DROP TABLE writer;
+DROP TABLE director;
+DROP TABLE person;
+DROP TABLE movie;
+
+Then copy paste all tables from CourseProjectTables.sql located in this folder.
+
+------------------------- POPULATING WITH THE CORRECT ENTRIES:
+Copy paste from ProjectEntries.sql located in this folder.
+
+
+------------------------- USING THE CORRECT JAVA FILES:
+Create .class files from the .java files in command line (Windows):
+
+cd $env:CATALINA_HOME\webapps\Movie\WEB-INF\classes
+rm *.class
+javac *
+
+cd $env:CATALINA_HOME\bin
+./shutdown.bat
+./startup.bat
+
+
+
