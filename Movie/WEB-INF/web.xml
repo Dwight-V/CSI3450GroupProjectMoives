@@ -5,6 +5,17 @@
     "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
 
 <web-app>
+  
+   <servlet>
+     <servlet-name>movie_upd</servlet-name>
+     <servlet-class>movie_upd</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+     <servlet-name>movie_upd</servlet-name>
+     <url-pattern>/movie_upd</url-pattern>
+  </servlet-mapping>
+
   <servlet>
      <servlet-name>movie_reg</servlet-name>
      <servlet-class>movie_reg</servlet-class>
@@ -13,17 +24,6 @@
      <servlet-name>movie_reg</servlet-name>
      <url-pattern>/movie_reg</url-pattern>
   </servlet-mapping>
-  
-  
-   <servlet>
-     <servlet-name>movie_upd</servlet-name>
-     <servlet-class>movie_upd</servlet-class>
-  </servlet>
-  <servlet-mapping>
-     <servlet-name>movie_upd</servlet-name>
-     <url-pattern>/movie_upd</url-pattern>
-  </servlet-mapping>
-
   
  <servlet>
      <servlet-name>movieJdbc</servlet-name>
@@ -51,7 +51,6 @@
      <servlet-name>person_reg</servlet-name>
      <servlet-class>person_reg</servlet-class>
   </servlet>
-
   <servlet-mapping>
      <servlet-name>person_reg</servlet-name>
      <url-pattern>/person_reg</url-pattern>
@@ -61,7 +60,6 @@
      <servlet-name>person_del</servlet-name>
      <servlet-class>person_del</servlet-class>
   </servlet>
-
   <servlet-mapping>
      <servlet-name>person_del</servlet-name>
      <url-pattern>/person_del</url-pattern>
@@ -71,7 +69,6 @@
      <servlet-name>personJdbc</servlet-name>
      <servlet-class>personJdbc</servlet-class>
   </servlet>
-
   <servlet-mapping>
      <servlet-name>personJdbc</servlet-name>
      <url-pattern>/personJdbc</url-pattern>
@@ -81,53 +78,84 @@
      <servlet-name>person_upd</servlet-name>
      <servlet-class>person_upd</servlet-class>
   </servlet>
-
   <servlet-mapping>
      <servlet-name>person_upd</servlet-name>
      <url-pattern>/person_upd</url-pattern>
   </servlet-mapping>
-
-  
   
   <servlet>
-     <servlet-name>role_reg</servlet-name>
-     <servlet-class>role_reg</servlet-class>
+     <servlet-name>theatre_reg</servlet-name>
+     <servlet-class>theatre_reg</servlet-class>
   </servlet>
-
   <servlet-mapping>
-     <servlet-name>role_reg</servlet-name>
-     <url-pattern>/role_reg</url-pattern>
+     <servlet-name>theatre_reg</servlet-name>
+     <url-pattern>/theatre_reg</url-pattern>
   </servlet-mapping>
 
 
  <servlet>
-     <servlet-name>roleJdbc</servlet-name>
-     <servlet-class>roleJdbc</servlet-class>
+     <servlet-name>theatreJdbc</servlet-name>
+     <servlet-class>theatreJdbc</servlet-class>
   </servlet>
-
   <servlet-mapping>
-     <servlet-name>roleJdbc</servlet-name>
-     <url-pattern>/roleJdbc</url-pattern>
+     <servlet-name>theatreJdbc</servlet-name>
+     <url-pattern>/theatreJdbc</url-pattern>
   </servlet-mapping>
   
   <servlet>
-     <servlet-name>role_del</servlet-name>
-     <servlet-class>role_del</servlet-class>
+     <servlet-name>theatre_del</servlet-name>
+     <servlet-class>theatre_del</servlet-class>
   </servlet>
-
   <servlet-mapping>
-     <servlet-name>role_del</servlet-name>
-     <url-pattern>/role_del</url-pattern>
+     <servlet-name>theatre_del</servlet-name>
+     <url-pattern>/theatre_del</url-pattern>
   </servlet-mapping>
   
   <servlet>
-     <servlet-name>role_upd</servlet-name>
-     <servlet-class>role_upd</servlet-class>
+     <servlet-name>theatre_upd</servlet-name>
+     <servlet-class>theatre_upd</servlet-class>
   </servlet>
-
   <servlet-mapping>
-     <servlet-name>role_upd</servlet-name>
-     <url-pattern>/role_upd</url-pattern>
+     <servlet-name>theatre_upd</servlet-name>
+     <url-pattern>/theatre_upd</url-pattern>
+  </servlet-mapping>
+
+
+
+  <servlet>
+     <servlet-name>TheatreMovieJdbc</servlet-name>
+     <servlet-class>TheatreMovieJdbc</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>TheatreMovieJdbc</servlet-name>
+     <url-pattern>/TheatreMovieJdbc</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+     <servlet-name>TheatreMovie_reg</servlet-name>
+     <servlet-class>TheatreMovie_reg</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>TheatreMovie_reg</servlet-name>
+     <url-pattern>/TheatreMovie_reg</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+     <servlet-name>TheatreMovie_upd</servlet-name>
+     <servlet-class>TheatreMovie_upd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>TheatreMovie_upd</servlet-name>
+     <url-pattern>/TheatreMovie_upd</url-pattern>
+  </servlet-mapping>
+
+    <servlet>
+     <servlet-name>TheatreMovie_del</servlet-name>
+     <servlet-class>TheatreMovie_del</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>TheatreMovie_del</servlet-name>
+     <url-pattern>/TheatreMovie_del</url-pattern>
   </servlet-mapping>
 
  
