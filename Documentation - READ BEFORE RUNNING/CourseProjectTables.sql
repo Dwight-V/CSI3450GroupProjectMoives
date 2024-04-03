@@ -34,9 +34,10 @@ CREATE TABLE producer (
     prod_position VARCHAR(50), 
     p_ID INT,
     m_ID INT,
-    PRIMARY KEY (prod_ID, m_ID),
+    PRIMARY KEY (prod_ID, p_id, m_ID),
     CONSTRAINT fk_has_p_ID_producer FOREIGN KEY(p_ID) REFERENCES person(p_ID),
-    CONSTRAINT fk_has_m_ID_producer FOREIGN KEY (m_ID) REFERENCES movie(m_ID)
+    CONSTRAINT fk_has_m_ID_producer FOREIGN KEY (m_ID) REFERENCES movie(m_ID),
+    CONSTRAINT unique_prod_id UNIQUE (prod_ID)
 );
 
 CREATE TABLE actor (
@@ -44,9 +45,10 @@ CREATE TABLE actor (
     actor_role VARCHAR(50),
     p_ID INT,
     m_ID INT,
-    PRIMARY KEY (actor_ID, m_ID),
+    PRIMARY KEY (actor_ID, p_ID, m_ID),
     CONSTRAINT fk_has_p_ID_actor FOREIGN KEY (p_ID) REFERENCES person(p_ID),
-    CONSTRAINT fk_has_m_ID_actor FOREIGN KEY (m_ID) REFERENCES movie(m_ID)
+    CONSTRAINT fk_has_m_ID_actor FOREIGN KEY (m_ID) REFERENCES movie(m_ID),
+    CONSTRAINT unique_actor_id UNIQUE (actor_ID)
 );
 
 CREATE TABLE actress (
@@ -54,9 +56,10 @@ CREATE TABLE actress (
     actress_role VARCHAR(50),
     p_ID INT,
     m_ID INT,
-    PRIMARY KEY (actress_ID, m_ID),
+    PRIMARY KEY (actress_ID, p_ID, m_ID),
     CONSTRAINT fk_has_p_ID_actress FOREIGN KEY(p_ID) REFERENCES person(p_ID),
-    CONSTRAINT fk_has_m_ID_actress FOREIGN KEY (m_ID) REFERENCES movie(m_ID)
+    CONSTRAINT fk_has_m_ID_actress FOREIGN KEY (m_ID) REFERENCES movie(m_ID),
+    CONSTRAINT unique_actress_ID UNIQUE (actress_ID) 
 );
 
 CREATE TABLE writer (
@@ -64,9 +67,10 @@ CREATE TABLE writer (
     writ_contr VARCHAR(100),
     p_ID INT,
     m_ID INT,
-    PRIMARY KEY (writ_ID, m_ID),
+    PRIMARY KEY (writ_ID, p_ID, m_ID),
     CONSTRAINT fk_has_p_ID_writer FOREIGN KEY(p_ID) REFERENCES person(p_ID),
-    CONSTRAINT fk_has_m_ID_writer FOREIGN KEY (m_ID) REFERENCES movie(m_ID)
+    CONSTRAINT fk_has_m_ID_writer FOREIGN KEY (m_ID) REFERENCES movie(m_ID),
+    CONSTRAINT unique_writer_ID UNIQUE (writ_ID) 
 );
 
 CREATE TABLE director (
@@ -74,18 +78,20 @@ CREATE TABLE director (
     dir_position VARCHAR(50),
     p_ID INT,
     m_ID INT,
-    PRIMARY KEY (dir_ID, m_ID),
+    PRIMARY KEY (dir_ID, p_ID, m_ID),
     CONSTRAINT fk_has_personID_director FOREIGN KEY(p_ID) REFERENCES person(p_ID),
-    CONSTRAINT fk_has_movieID_director FOREIGN KEY (m_ID) REFERENCES movie(m_ID)
+    CONSTRAINT fk_has_movieID_director FOREIGN KEY (m_ID) REFERENCES movie(m_ID),
+    CONSTRAINT unique_director_ID UNIQUE (dir_ID) 
 );
 
-CREATE TABLE theatremovie (
+CREATE TABLE theatre-movie (
     t_m_ID INT,
     t_m_start TIMESTAMP,
     t_m_end TIMESTAMP,
     m_ID INT,
     t_ID INT,
     PRIMARY KEY (t_m_ID, m_ID, t_ID),
-    CONSTRAINT fk_has_m_ID_theatremovie FOREIGN KEY (m_ID) REFERENCES movie(m_ID),
-    CONSTRAINT fk_has_t_ID_theatremovie FOREIGN KEY (t_ID) REFERENCES theatre(t_ID)
+    CONSTRAINT fk_has_m_ID_theatre-movie FOREIGN KEY (m_ID) REFERENCES movie(m_ID),
+    CONSTRAINT fk_has_t_ID_theatre-movie FOREIGN KEY (t_ID) REFERENCES theatre(t_ID),
+    CONSTRAINT unique_t_m_ID UNIQUE (t_m_ID)
 );
