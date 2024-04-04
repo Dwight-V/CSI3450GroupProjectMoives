@@ -19,7 +19,7 @@ public class TheatreMovie_reg extends HttpServlet {
             // Load the JDBC driver and establish a connection.
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection con = DriverManager.getConnection(
-                "jdbc:oracle:thin:@localhost:1521:orcl", "C##CSI3450", "johnRing19841");
+                "jdbc:oracle:thin:@localhost:1521:orcl", "C##project", "project");
 
             // Prepare SQL statement to insert the theatre-movie association.
             String sql = "INSERT INTO theatremovie (t_m_id, t_m_start, t_m_end, m_ID, t_ID) VALUES (?, TO_TIMESTAMP(?, 'YYYY_MM_DD HH24:MI'), TO_TIMESTAMP(?, 'YYYY_MM_DD HH24:MI')"
