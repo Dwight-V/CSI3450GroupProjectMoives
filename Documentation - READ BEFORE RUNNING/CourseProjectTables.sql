@@ -84,14 +84,14 @@ CREATE TABLE director (
     CONSTRAINT unique_director_ID UNIQUE (dir_ID) 
 );
 
-CREATE TABLE theatre-movie (
+CREATE TABLE theatremovie (
     t_m_ID INT,
     t_m_start TIMESTAMP,
     t_m_end TIMESTAMP,
     m_ID INT,
     t_ID INT,
     PRIMARY KEY (t_m_ID, m_ID, t_ID),
-    CONSTRAINT fk_has_m_ID_theatre-movie FOREIGN KEY (m_ID) REFERENCES movie(m_ID),
-    CONSTRAINT fk_has_t_ID_theatre-movie FOREIGN KEY (t_ID) REFERENCES theatre(t_ID),
+    CONSTRAINT fk_has_m_ID_theatremovie FOREIGN KEY (m_ID) REFERENCES movie(m_ID),
+    CONSTRAINT fk_has_t_ID_theatremovie FOREIGN KEY (t_ID) REFERENCES theatre(t_ID),
     CONSTRAINT unique_t_m_ID UNIQUE (t_m_ID)
 );
