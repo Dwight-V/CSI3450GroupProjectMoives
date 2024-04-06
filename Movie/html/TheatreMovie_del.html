@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Theatre-Movie Association Delete</title>
+    <style>
+      label {
+        display: block;
+        margin-top: 10px;
+      }
+      .required::after {
+        content: " *";
+        color: #ff0000;
+      }
+      input,
+      select {
+        margin-top: 5px;
+      }
+      .submit-reset {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 style="color: #ff0000">Theatre-Movie Delete</h2>
+    <form method="post" action="/Movie/TheatreMovie_reg">
+      <label for="t_m_id" class="required">Theatre Movie ID</label>
+      <input type="text" id="t_m_id" name="t_m_id" size="12" required />
+
+      <div class="submit-reset">
+        <input type="submit" value="Submit" />
+        <input type="reset" value="Reset" />
+      </div>
+    </form>
+    <p>
+      <a href="/Movie/index.html"
+        ><img src="goback.JPG" alt="Go Back" style="margin-top: 15px"
+      /></a>
+    </p>
+  </body>
+</html>
