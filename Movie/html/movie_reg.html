@@ -6,12 +6,12 @@
 <body>
     <h2>Add a Movie</h2>
     <form method="post" action="/Movie/movie_reg">
-        <p>ID: <input type="text" name="m_id" size="12" required></p>
-        <p>Title: <input type="text" name="m_title" size="21" required></p>
+        <p>ID: <font color = "#FF0000">*</font>  <input type = "number" min="0" onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="m_id" size="12" required></p>
+        <p>Title: <font color = "#FF0000">*</font>  <input type="text" name="m_title" size="21" required></p>
         <p>Description: <input type="text" name="m_synopsis" size="42"></p>
-        <p>Release Date: <input type="date" name="m_releaseDate" value = "0001-01-01"></p>
+        <p>Release Date: <font color = "#FF0000">*</font>  <input type="date" name="m_releaseDate" value = "0001-01-01"></p>
         <i>If release date is not set, set to 0001-01-01</i>
-        <p>Length: <input type="text" name="m_length" size="15"></p>
+        <p>Length: <input type = "number" min="0" onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="m_length" size="15"></p>
         <p>Category: <select name="cat_id">
             <option value="Action">Action</option>
             <option value="Animation">Animation</option>
@@ -35,6 +35,10 @@
         </select></p>
         <p><input type="submit" value="Submit"> <input type="reset" value="Reset"></p>
     </form>
-    <p><a href="/Movie/index.html">Go Back</a></p>
+    <p>
+        <a href="\Movie\index.html">
+            <img border="0" src="goback.JPG" width="41" height="66">
+        </a>
+    </p>
 </body>
 </html>
