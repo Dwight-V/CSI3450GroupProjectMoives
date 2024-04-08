@@ -12,8 +12,7 @@
         content: " *";
         color: #ff0000;
       }
-      input,
-      select {
+      input, select {
         margin-top: 5px;
       }
       .submit-reset {
@@ -23,7 +22,7 @@
   </head>
   <body>
     <h2 style="color: #ff0000">Theatre-Movie Update</h2>
-    <form method="post" action="/Movie/TheatreMovie_reg">
+    <form method="get" action="/Movie/TheatreMovie_upd">
       <label for="t_m_id" class="required">Theatre Movie ID</label>
       <input type="text" id="t_m_id" name="t_m_id" size="12" required />
 
