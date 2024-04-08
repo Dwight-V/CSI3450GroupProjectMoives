@@ -37,6 +37,7 @@ public class movieJdbc extends HttpServlet {
 		query = "select m_id, m_title, m_releaseDate, m_synopsis, m_length, m_rating, cat_id, productionStatus from movie";
 
 		out.println("<html><head><title>Movie Table Report</title>");
+    
 		out.println("</head><body>");
 
 		out.print("<br /><b><center><font color=\"RED\"><H2>Movie Table Report</H2></font>");
@@ -48,6 +49,7 @@ public class movieJdbc extends HttpServlet {
 		}
 		out.println("<center><table border=\"1\">");
 		out.println("<tr BGCOLOR=\"#cccccc\">");
+
 		out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">Movie ID</td>");
 		out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">Title</td>");
 		out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">Release Date</td>");

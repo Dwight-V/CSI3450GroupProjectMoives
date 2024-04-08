@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Theatre-Movie Association</title>
+    <style>
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        .required::after {
+            content: " *";
+            color: #FF0000;
+        }
+        input, select {
+            margin-top: 5px;
+        }
+        .submit-reset {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="color: #FF0000;">Theatre-Movie</h2>
+    <form method="post" action="/Movie/TheatreMovie_reg">
+        <label for="t_m_id" class="required">Theatre Movie ID</label>
+        <input type="text" id="t_m_id" name="t_m_id" size="12" required>
+
+        <label for="t_m_start" class="required">Movie Start Time</label>
+        <input type="datetime-local" id="t_m_start" name="t_m_start" required>
+
+        <label for="t_m_end" class="required">Movie End Time</label>
+        <input type="datetime-local" id="t_m_end" name="t_m_end" required>
+
+        <label for="m_ID" class="required">Movie ID</label>
+        <input type="text" id="m_ID" name="m_ID" size="10" required>
+
+        <label for="t_ID" class="required">Theatre ID</label>
+        <input type="text" id="t_ID" name="t_ID" size="10" required>
+
+        <div class="submit-reset">
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </div>
+    </form>
+    <p><a href="/Movie/index.html"><img src="goback.JPG" alt="Go Back" style="margin-top: 15px;"></a></p>
+</body>
+</html>
