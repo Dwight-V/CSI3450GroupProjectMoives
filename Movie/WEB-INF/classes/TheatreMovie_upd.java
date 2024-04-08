@@ -50,7 +50,7 @@ public class TheatreMovie_upd extends HttpServlet {
 				"t_ID = '" + t_ID + "' " +
 				"where t_m_id = '" + t_m_id + "'";
 		out.println("<html><head><title>Movie has been updtated</title>");
-		out.println(query);
+		// out.println(query);
 		out.println("</head><body>");
 
 		out.print("<br /><b><center><font color=\"BLACK\"><H2>One Record has updated</H2></font>");
@@ -60,38 +60,36 @@ public class TheatreMovie_upd extends HttpServlet {
 
 		} catch (SQLException e) {
 			out.println("SQLException while executing SQL Statement:");
-			out.println(e);
+			// out.println(e);
 		}
-		// out.println("<center><table border=\"1\">");
-		// out.println("<tr BGCOLOR=\"#cccccc\">");
+		out.println("<center><table border=\"1\">");
+		out.println("<tr BGCOLOR=\"#cccccc\">");
+		out.println("<td align = \"justify\"><font face =\"times new roman\" size=\"4pt\"> </td>");
 		// out.println("<td align = \"justify\"><font face =\"times new roman\"
-		// size=\"4pt\"> </td>");
-		// // out.println("<td align = \"justify\"><font face =\"times new roman\"
-		// // size=\"4pt\">movtitle</td>");
-		// out.println("</tr>");
-		// try {
-		// while (result.next()) {
-		// out.println("<tr>");
-		// out.println("<td align = \"justify\"><font face =\"times new roman\"
-		// size=\"4pt\">"
-		// + result.getString(1) + "</td>");
-		// // out.println("<td align = \"justify\"><font face =\"times new roman\"
-		// // size=\"4pt\">"+result.getString(2)+"</td>");
-		// out.println("</tr>");
-		// }
-		// } catch (SQLException e) {
-		// System.out.println("Resutset is not connected");
-		// }
+		// size=\"4pt\">movtitle</td>");
+		out.println("</tr>");
+		try {
+			while (result.next()) {
+				out.println("<tr>");
+				out.println("<td align = \"justify\"><font face =\"times new roman\" size=\"4pt\">"
+						+ result.getString(1) + "</td>");
+				// out.println("<td align = \"justify\"><font face =\"times new roman\"
+				// size=\"4pt\">"+result.getString(2)+"</td>");
+				out.println("</tr>");
+			}
+		} catch (SQLException e) {
+			System.out.println("Resutset is not connected");
+		}
 
-		// out.println("</table></CENTER>");
-		// try {
-		// result.close();
-		// state4.close();
-		// con.close();
-		// System.out.println("Connection is closed successfully.");
-		// } catch (SQLException e) {
-		// e.printStackTrace();
-		// }
+		out.println("</table></CENTER>");
+		try {
+			result.close();
+			state4.close();
+			con.close();
+			System.out.println("Connection is closed successfully.");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		out.println("</body></html>");
 	}
 }
