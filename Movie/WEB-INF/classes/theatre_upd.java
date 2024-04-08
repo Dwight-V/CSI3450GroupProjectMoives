@@ -11,7 +11,6 @@ public class theatre_upd extends HttpServlet {
 		String query = "";
 		Connection con = null;
 
-		String m_id = request.getParameter("m_id");
 		String t_id = request.getParameter("t_id");
 		String t_name = request.getParameter("t_name");
 		String t_street = request.getParameter("t_street");
