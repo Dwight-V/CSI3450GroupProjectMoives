@@ -6,13 +6,30 @@ import java.sql.*;
 public class person_reg extends HttpServlet {
     private PreparedStatement personPstmt, rolePstmt;
     private Connection conn;
-    private Statement extraPersonDelete;
     private PrintWriter out;
 
     public void init() throws ServletException {
         initializeJdbc();
     }
 
+    private void initializeJdbc() {
+        try {
+            String driver = "oracle.jdbc.driver.OracleDriver";
+            Class.forName(driver);
+
+            String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+            String user = "C##project";
+            String password = "project";
+
+            conn = DriverManager.getConnection(url, user, password);
+
+            personPstmt = conn.prepareStatement("INSERT INTO person (p_id, p_lastName, p_firstName, p_pay) VALUES (?, ?, ?, ?)");
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         out = response.getWriter();
@@ -22,7 +39,7 @@ public class person_reg extends HttpServlet {
         String p_firstName = request.getParameter("p_firstName");
         String p_pay = request.getParameter("p_pay");
         String role_name = request.getParameter("role_name");
-        String role_id = request.getParameter("role_id");
+        String role_id = p_id;
         String position = request.getParameter("position");
         String m_id = request.getParameter("m_id");
 
@@ -32,9 +49,15 @@ public class person_reg extends HttpServlet {
                 return;
             }
 
-            storePerson(p_id, p_lastName, p_firstName, p_pay);
-        
-            // Construct SQL statement for role insertion based on role_id
+            //Notify user if there is a person with the ID entered that already exists, and that a role table entry addition is to be attempted.
+            if (doesPersonExist(p_id)) {
+                out.println("Person with ID: " +  p_id + " already exists. Attempting to create " + role_name + " entry for that person.");
+            } else {
+                storePerson(p_id, p_lastName, p_firstName, p_pay);
+                out.println("Person with ID: " +  p_id + " created. Attempting to create " + role_name + " entry for that person.");
+            }
+
+            //Construct SQL statement for role insertion based on role_id
             String roleAttributeName_ID = "";
             String roleAttributeName_Position = "";
             switch(role_name) {
@@ -62,10 +85,25 @@ public class person_reg extends HttpServlet {
                     out.println("\n Error in passing attribute role_name.");
             }
 
-            storeRole(roleAttributeName_ID, roleAttributeName_Position, p_id, m_id, role_id, role_name, position);
+            //Movie with entered m_id must exist for the role entry to be added
+            if (doesMovieExist(m_id)) {
 
-            out.println(p_id + ": " + p_firstName + " " + p_lastName + " is now registered in the database in tables Person and role table " + role_name + ".");
+                //If role entry exists already, notify user
+                if(doesRoleEntryExist(m_id, p_id, role_name)) {
 
+                    out.println("\n" + role_name + " entry with person ID = " + roleAttributeName_ID + ": " + p_id + " and movie ID: " + m_id + 
+                    " already exists, and was not created.");
+
+                } else {
+                    //Insert new role table entry
+                    storeRole(roleAttributeName_ID, roleAttributeName_Position, p_id, m_id, role_id, role_name, position);
+                    out.println(p_id + ": " + p_firstName + " " + p_lastName + " is registered in the database role table " + role_name + ".");
+                }
+            } else {
+                //Movie does not exist, and the role entry therefore cannot be added.
+                out.println("Movie with ID: " + m_id + " does not exist.");
+            }
+            
         } catch (Exception ex) {
             out.println("\n Error: " + ex.getMessage());
         } finally {
@@ -73,68 +111,100 @@ public class person_reg extends HttpServlet {
         }
     }
 
-    private void initializeJdbc() {
-        try {
-            String driver = "oracle.jdbc.driver.OracleDriver";
-            Class.forName(driver);
+    //Check if the person already exists
+    private boolean doesPersonExist(String p_id) throws SQLException { 
+        String query = "SELECT COUNT(*) FROM person WHERE p_ID = ?";
+        PreparedStatement checkPersonExistsSQL = conn.prepareStatement(query);
+        checkPersonExistsSQL.setString(1, p_id);
+        
+        ResultSet resultSet = checkPersonExistsSQL.executeQuery();
+        resultSet.next();
+        int personExistsCheck = resultSet.getInt(1);
 
-            String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-            String user = "C##project";
-            String password = "project";
-
-            conn = DriverManager.getConnection(url, user, password);
-
-            personPstmt = conn.prepareStatement("INSERT INTO person (p_id, p_lastName, p_firstName, p_pay) VALUES (?, ?, ?, ?)");
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        if (personExistsCheck > 0) {
+            return true;
+        } else {
+            return false;
         }
     }
 
+    //Inserts person entry into person table.
     private void storePerson(String p_id, String p_lastName, String p_firstName, String p_pay) throws SQLException {
-        personPstmt.setString(1, p_id);
-        personPstmt.setString(2, p_lastName);
-        personPstmt.setString(3, p_firstName);
-        personPstmt.setString(4, p_pay);
-        personPstmt.executeUpdate();
+        try 
+        {
+            personPstmt.setString(1, p_id);
+            personPstmt.setString(2, p_lastName);
+            personPstmt.setString(3, p_firstName);
+            personPstmt.setString(4, p_pay);
+            personPstmt.executeUpdate();
+        } catch (SQLException e)
+        {
+            int errorCode = e.getErrorCode();
+            String sqlState = e.getSQLState();
+
+            out.println("Error code:" + errorCode + " SQL State: " + sqlState);
+            //out.println("Error: " + e.getMessage() + ". A Person table entry already exists with p_ID: " + p_id + ". Please choose another.");
+        }
 
     }
 
+    //Checks if the movie with the m_id exists or not.
+    private boolean doesMovieExist(String m_id) throws SQLException {
+        
+        String query = "SELECT COUNT(*) FROM movie WHERE m_ID = ?";
+        PreparedStatement movieExistsSQL = conn.prepareStatement(query);
+        movieExistsSQL.setString(1, m_id);
+        
+        ResultSet resultSet = movieExistsSQL.executeQuery();
+        resultSet.next();
+        int movieExistsCheck = resultSet.getInt(1);
+
+        if (movieExistsCheck > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    //Check if the the movie already exists 
+    private boolean doesRoleEntryExist(String m_id, String p_id, String role_name) throws SQLException {
+        
+        String query = "SELECT COUNT(*) FROM " + role_name + " WHERE m_ID = ? AND p_ID = ?";
+        PreparedStatement roleExistsSQL = conn.prepareStatement(query);
+        roleExistsSQL.setString(1, m_id);
+        roleExistsSQL.setString(2, p_id);
+        
+        ResultSet resultSet = roleExistsSQL.executeQuery();
+        resultSet.next();
+        int roleEntryExistsCheck = resultSet.getInt(1);
+
+        if (roleEntryExistsCheck > 0) {
+            return true;
+        } else {
+            return false;
+        }
+        
+    }
+
+    //Inserts role table entry
     private void storeRole(String roleAttributeName_ID, String roleAttributeName_Position, String p_id, String m_id, 
     String role_id, String role_name, String position) throws SQLException {
-
+        
         try 
         {
-           // Start a transaction
-            conn.setAutoCommit(false);
-
-            // Insert into role table determined by choice of role position.
+            //Insert into role table determined by choice of role position.
             String roleInsertSQL = "INSERT INTO " + role_name + " (" + roleAttributeName_ID + ", " + roleAttributeName_Position + ", p_ID, m_ID) VALUES (?, ?, ?, ?)";
             rolePstmt = conn.prepareStatement(roleInsertSQL);
             rolePstmt.setString(1, role_id); 
             rolePstmt.setString(2, position);
             rolePstmt.setString(3, p_id);
             rolePstmt.setString(4, m_id);
-            int roleTableRowsAffected = rolePstmt.executeUpdate();
-
-            if (roleTableRowsAffected > 0) {
-                conn.commit();
-            }
+            rolePstmt.executeUpdate();
+   
         }
-        catch (SQLException e)
-        {
-            conn.rollback();
-            // Delete the person entry
-            extraPersonDelete = conn.createStatement();
-            extraPersonDelete.executeUpdate("DELETE FROM person WHERE p_id = " + p_id);
-            conn.commit();
-
-            out.println("\n Error: " + e.getMessage() + ". " + role_name + " table addition has failed. " +
-                "\n Person entry with p_ID = " + p_id + " has been deleted.");
-        } finally {
-            // Set auto-commit to true to revert to default behavior
-            conn.setAutoCommit(true);
-        }
+        catch (SQLException e) {//This should not happen if the check method worked prior...
+            out.println("\n Error: " + e.getMessage());
+        } 
 
     }
 }
