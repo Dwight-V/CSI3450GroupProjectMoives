@@ -1,17 +1,26 @@
 <head>
-	<title>Delete a person</title>
+	<title>Delete a person or role entry</title>
   </head>
 
 <html>
   <body>
-	<h2 align="left"><font size="5" color="#FF0000">Delete a Person</font></h2>
+	<h2 align="left"><font size="5" color="#FF0000">Delete a Person or Role Table Entry</font></h2>
 	<form method = "get" action = "/Movie/person_del">
-	  <p>ID: <font color = "#FF0000">*</font> <font color = "#FF0000">&nbsp;&nbsp;</font><input type = "text" name = "m_id" size="12"><font color = "#FF0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>&nbsp;&nbsp;</p>
-	  <p>First Name: <input type="text" name="p_first" size="21" required></p>
-      <p>Last Name: <input type = "text" name = "p_last" size="21" required></p>
-	  <p>&nbsp;</p>
-	  <p><input type = "submit" name = "Submit" value = "Submit">&nbsp;
-		 <input type = "reset" value = "Reset"></p>
+	<p>Delete a role table entry:</p>
+	<p>Role Type: <select name = "role_name">
+		<option value = "Producer">Producer</option>
+		<option value = "Actor">Actor</option>
+		<option value = "Actress">Actress</option>
+		<option value = "Writer">Writer</option>
+		<option value = "Director">Director</option>
+	</select></p>
+	<p>Role ID: <input type = "number" name = "role_ID" size="12"></p>
+	<br>
+	<p>Delete a person:</p>
+	<p><font color = "#FF0000">This will delete ALL associated role table entries as well!</font></p>
+	<p>Person ID: <input type = "number" name = "p_ID" size="12"><font color = "#FF0000"></p>
+	<p><input type = "submit" name = "Submit" value = "Submit">&nbsp;
+	<input type = "reset" value = "Reset"></p>
 	</form>
 	<p><a href="/Movie/index.html">Go Back</a></p>
 </html>
