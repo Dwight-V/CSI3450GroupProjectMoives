@@ -20,7 +20,7 @@ public class person_upd extends HttpServlet
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
 
-            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "C##CSI3450", "johnRing19841");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "C##project", "project");
 
         } catch(SQLException e) {	
 
