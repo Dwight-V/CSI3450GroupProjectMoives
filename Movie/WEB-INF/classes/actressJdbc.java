@@ -57,7 +57,7 @@ public class actressJdbc extends HttpServlet
 		}
 		
 		//Queries the database for the Actress table's entries
-		query = "select * from writer";
+		query = "select * from actress";
 		
 		out.println("<html><head><title>Actress Table Report</title>");	 
 		out.println("</head><body>");
