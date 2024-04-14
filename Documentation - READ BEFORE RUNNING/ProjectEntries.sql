@@ -47,10 +47,10 @@ INSERT INTO person (p_ID, p_lastName, p_firstName, p_pay) VALUES (3, 'Lewis', 'J
 /*Actors*/
 INSERT INTO person (p_ID, p_lastName, p_firstName, p_pay) VALUES (4, 'Rowe', 'Jacob', 12500000);
 INSERT INTO person (p_ID, p_lastName, p_firstName, p_pay) VALUES (5, 'Apple', 'Johnny', 900000);
-INSERT INTO person (p_ID, p_lastName, p_firstName, p_pay) VALUES (6, 'Chang', 'Drew', 950000)
+INSERT INTO person (p_ID, p_lastName, p_firstName, p_pay) VALUES (6, 'Chang', 'Drew', 950000);
 
 /*Actresses*/
-INSERT INTO person (p_ID, p_lastName, p_firstName, p_pay) VALUES (7, 'Lisbon', 'Kate', 11000000); --Never in any movie produced by John Doe
+INSERT INTO person (p_ID, p_lastName, p_firstName, p_pay) VALUES (7, 'Lisbon', 'Kate', 11000000);
 INSERT INTO person (p_ID, p_lastName, p_firstName, p_pay) VALUES (8, 'Middleton', 'Angela', 950000);
 INSERT INTO person (p_ID, p_lastName, p_firstName, p_pay) VALUES (9, 'Rite', 'Ilya', 850000);
 
@@ -77,41 +77,41 @@ VALUES (2, 'Generic Theatre 2', '456 Main St.', 'Main City', 'MI', 67890, 'USA')
 -- Populate producer table
 
 /*Joseph Lewis*/
-INSERT INTO producer (prod_ID, prod_position, p_ID, m_ID) VALUES (1, 'Producer', 3, 1); --Generic Action Movie
-INSERT INTO producer (prod_ID, prod_position, p_ID, m_ID) VALUES (1, 'Producer', 3, 2); --Generic Action Movie 2
-INSERT INTO producer (prod_ID, prod_position, p_ID, m_ID) VALUES (1, 'Producer', 3, 3); --Generic Scifi Thriller
+INSERT INTO producer (prod_ID, prod_position, p_ID, m_ID) VALUES (3, 'Producer', 3, 1);
+INSERT INTO producer (prod_ID, prod_position, p_ID, m_ID) VALUES (3, 'Producer', 3, 2);
+INSERT INTO producer (prod_ID, prod_position, p_ID, m_ID) VALUES (3, 'Producer', 3, 3);
 
 /*John Doe*/
-INSERT INTO producer (prod_ID, prod_position, p_ID, m_ID) VALUES (2, 'Producer', 1, 5);--Generic Animated Adventure
-INSERT INTO producer (prod_ID, prod_position, p_ID, m_ID) VALUES (2, 'Producer', 1, 6);--Generic Animated Adventure 2
-INSERT INTO producer (prod_ID, prod_position, p_ID, m_ID) VALUES (2, 'Producer', 1, 7);--Generic Animated Adventure 2 - Remastered
+INSERT INTO producer (prod_ID, prod_position, p_ID, m_ID) VALUES (1, 'Producer', 1, 5);
+INSERT INTO producer (prod_ID, prod_position, p_ID, m_ID) VALUES (1, 'Producer', 1, 6);
+INSERT INTO producer (prod_ID, prod_position, p_ID, m_ID) VALUES (1, 'Producer', 1, 7);
 
 /*Jane Doe*/
-INSERT INTO producer (prod_ID, prod_position, p_ID, m_ID) VALUES (3, 'Producer', 2, 4); --Generic Horror Flick
+INSERT INTO producer (prod_ID, prod_position, p_ID, m_ID) VALUES (2, 'Producer', 2, 4);
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
 -- Populate actor table
 
 /*Jacob Rowe*/
-INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (1, 'Lead Actor', 4, 1);
-INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (1, 'Lead Actor', 4, 2);
-INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (1, 'Lead Actor', 4, 3);
-INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (1, 'Lead Actor', 4, 4);
-INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (1, 'Supporting Actor', 4, 5);
-INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (1, 'Supporting Actor', 4, 6);
+INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (4, 'Lead Actor', 4, 1);
+INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (4, 'Lead Actor', 4, 2);
+INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (4, 'Lead Actor', 4, 3);
+INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (4, 'Lead Actor', 4, 4);
+INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (4, 'Supporting Actor', 4, 5);
+INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (4, 'Supporting Actor', 4, 6);
 
 /*Johnny Apple*/
-INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (2, 'Supporting Actor', 5, 1);
-INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (2, 'Supporting Actor', 5, 2);
-INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (2, 'Lead Actor', 5, 4);
+INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (5, 'Supporting Actor', 5, 1);
+INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (5, 'Supporting Actor', 5, 2);
+INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (5, 'Lead Actor', 5, 4);
 
 /*Drew Chang*/
-INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (3, 'Lead Actor', 6, 1);
-INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (3, 'Lead Actor', 6, 2);
-INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (3, 'Supporting Actor', 6, 4);
-INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (3, 'Supporting Actor', 6, 5);
-INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (3, 'Supporting Actor', 6, 6);
+INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (6, 'Lead Actor', 6, 1);
+INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (6, 'Lead Actor', 6, 2);
+INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (6, 'Supporting Actor', 6, 4);
+INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (6, 'Supporting Actor', 6, 5);
+INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (6, 'Supporting Actor', 6, 6);
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
@@ -119,59 +119,59 @@ INSERT INTO actor (actor_ID, actor_role, p_ID, m_ID) VALUES (3, 'Supporting Acto
 -- Populate actress table
 
 /*Kate Lisbon*/
-INSERT INTO actress (actress_ID, actress_role, p_ID, m_ID) VALUES (1, 'Lead Actress', 7, 1);
-INSERT INTO actress (actress_ID, actress_role, p_ID, m_ID) VALUES (1, 'Lead Actress', 7, 2);
-INSERT INTO actress (actress_ID, actress_role, p_ID, m_ID) VALUES (1, 'Lead Actress', 7, 4);
+INSERT INTO actress (actress_ID, actress_role, p_ID, m_ID) VALUES (7, 'Lead Actress', 7, 1);
+INSERT INTO actress (actress_ID, actress_role, p_ID, m_ID) VALUES (7, 'Lead Actress', 7, 2);
+INSERT INTO actress (actress_ID, actress_role, p_ID, m_ID) VALUES (7, 'Lead Actress', 7, 4);
 
 /*Angela Middleton*/
-INSERT INTO actress (actress_ID, actress_role, p_ID, m_ID) VALUES (2, 'Lead Actress', 8, 4);
-INSERT INTO actress (actress_ID, actress_role, p_ID, m_ID) VALUES (2, 'Lead Actress', 8, 5);
-INSERT INTO actress (actress_ID, actress_role, p_ID, m_ID) VALUES (2, 'Supporting Actress', 8, 6);
-INSERT INTO actress (actress_ID, actress_role, p_ID, m_ID) VALUES (2, 'Supporting Actress', 8, 7);
+INSERT INTO actress (actress_ID, actress_role, p_ID, m_ID) VALUES (8, 'Lead Actress', 8, 4);
+INSERT INTO actress (actress_ID, actress_role, p_ID, m_ID) VALUES (8, 'Lead Actress', 8, 5);
+INSERT INTO actress (actress_ID, actress_role, p_ID, m_ID) VALUES (8, 'Supporting Actress', 8, 6);
+INSERT INTO actress (actress_ID, actress_role, p_ID, m_ID) VALUES (8, 'Supporting Actress', 8, 7);
 
 /*Ilya Rite*/
-INSERT INTO actress (actress_ID, actress_role, p_ID, m_ID) VALUES (3, 'Supporting Actress', 9, 1);
-INSERT INTO actress (actress_ID, actress_role, p_ID, m_ID) VALUES (3, 'Supporting Actress', 9, 2);
-INSERT INTO actress (actress_ID, actress_role, p_ID, m_ID) VALUES (3, 'Lead Actress', 9, 3);
-INSERT INTO actress (actress_ID, actress_role, p_ID, m_ID) VALUES (3, 'Supporting Actress', 9, 5);
-INSERT INTO actress (actress_ID, actress_role, p_ID, m_ID) VALUES (3, 'Supporting Actress', 9, 6);
-INSERT INTO actress (actress_ID, actress_role, p_ID, m_ID) VALUES (3, 'Supporting Actress', 9, 7);
+INSERT INTO actress (actress_ID, actress_role, p_ID, m_ID) VALUES (9, 'Supporting Actress', 9, 1);
+INSERT INTO actress (actress_ID, actress_role, p_ID, m_ID) VALUES (9, 'Supporting Actress', 9, 2);
+INSERT INTO actress (actress_ID, actress_role, p_ID, m_ID) VALUES (9, 'Lead Actress', 9, 3);
+INSERT INTO actress (actress_ID, actress_role, p_ID, m_ID) VALUES (9, 'Supporting Actress', 9, 5);
+INSERT INTO actress (actress_ID, actress_role, p_ID, m_ID) VALUES (9, 'Supporting Actress', 9, 6);
+INSERT INTO actress (actress_ID, actress_role, p_ID, m_ID) VALUES (9, 'Supporting Actress', 9, 7);
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
 -- Populate writer table
 
 /*Brandon Taylor*/
-INSERT INTO writer (writ_ID, writ_contr, p_ID, m_ID) VALUES (1, 'Lead Writer', 12, 1);
-INSERT INTO writer (writ_ID, writ_contr, p_ID, m_ID) VALUES (1, 'Lead Writer', 12, 2);
+INSERT INTO writer (writ_ID, writ_contr, p_ID, m_ID) VALUES (12, 'Lead Writer', 12, 1);
+INSERT INTO writer (writ_ID, writ_contr, p_ID, m_ID) VALUES (12, 'Lead Writer', 12, 2);
 
 /*Dimitri Rite*/
-INSERT INTO writer (writ_ID, writ_contr, p_ID, m_ID) VALUES (2, 'Supporting Writer', 10, 1);
-INSERT INTO writer (writ_ID, writ_contr, p_ID, m_ID) VALUES (2, 'Supporting Writer', 10, 2);
-INSERT INTO writer (writ_ID, writ_contr, p_ID, m_ID) VALUES (2, 'Lead Writer', 10, 3);
-INSERT INTO writer (writ_ID, writ_contr, p_ID, m_ID) VALUES (2, 'Lead Writer', 10, 4);
+INSERT INTO writer (writ_ID, writ_contr, p_ID, m_ID) VALUES (10, 'Supporting Writer', 10, 1);
+INSERT INTO writer (writ_ID, writ_contr, p_ID, m_ID) VALUES (10, 'Supporting Writer', 10, 2);
+INSERT INTO writer (writ_ID, writ_contr, p_ID, m_ID) VALUES (10, 'Lead Writer', 10, 3);
+INSERT INTO writer (writ_ID, writ_contr, p_ID, m_ID) VALUES (10, 'Lead Writer', 10, 4);
 
 /*Taylor Lee*/
-INSERT INTO writer (writ_ID, writ_contr, p_ID, m_ID) VALUES (3, 'Lead Writer', 11, 5);
-INSERT INTO writer (writ_ID, writ_contr, p_ID, m_ID) VALUES (3, 'Lead Writer', 11, 6);
-INSERT INTO writer (writ_ID, writ_contr, p_ID, m_ID) VALUES (3, 'Lead Writer', 11, 7);
+INSERT INTO writer (writ_ID, writ_contr, p_ID, m_ID) VALUES (11, 'Lead Writer', 11, 5);
+INSERT INTO writer (writ_ID, writ_contr, p_ID, m_ID) VALUES (11, 'Lead Writer', 11, 6);
+INSERT INTO writer (writ_ID, writ_contr, p_ID, m_ID) VALUES (11, 'Lead Writer', 11, 7);
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
 -- Populate director table
 
 /*Joseph Zimmer*/
-INSERT INTO director (dir_ID, dir_position, p_ID, m_ID) VALUES (1, 'Lead Director', 13, 1);
-INSERT INTO director (dir_ID, dir_position, p_ID, m_ID) VALUES (1, 'Lead Director', 13, 2);
-INSERT INTO director (dir_ID, dir_position, p_ID, m_ID) VALUES (1, 'Lead Director', 13, 3);
+INSERT INTO director (dir_ID, dir_position, p_ID, m_ID) VALUES (13, 'Lead Director', 13, 1);
+INSERT INTO director (dir_ID, dir_position, p_ID, m_ID) VALUES (13, 'Lead Director', 13, 2);
+INSERT INTO director (dir_ID, dir_position, p_ID, m_ID) VALUES (13, 'Lead Director', 13, 3);
 
 /*Shleby White*/
-INSERT INTO director (dir_ID, dir_position, p_ID, m_ID) VALUES (1, 'Lead Director', 15, 4);
+INSERT INTO director (dir_ID, dir_position, p_ID, m_ID) VALUES (15, 'Lead Director', 15, 4);
 
 /*Mark Hanks*/
-INSERT INTO director (dir_ID, dir_position, p_ID, m_ID) VALUES (1, 'Lead Director', 14, 5);
-INSERT INTO director (dir_ID, dir_position, p_ID, m_ID) VALUES (1, 'Lead Director', 14, 6);
-INSERT INTO director (dir_ID, dir_position, p_ID, m_ID) VALUES (1, 'Lead Director', 14, 7);
+INSERT INTO director (dir_ID, dir_position, p_ID, m_ID) VALUES (14, 'Lead Director', 14, 5);
+INSERT INTO director (dir_ID, dir_position, p_ID, m_ID) VALUES (14, 'Lead Director', 14, 6);
+INSERT INTO director (dir_ID, dir_position, p_ID, m_ID) VALUES (14, 'Lead Director', 14, 7);
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
