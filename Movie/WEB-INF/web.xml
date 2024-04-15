@@ -183,5 +183,64 @@
      <url-pattern>/producerJdbc</url-pattern>
   </servlet-mapping>
 
+    
+   <servlet>
+     <servlet-name>roleMemberMovies</servlet-name>
+     <servlet-class>roleMemberMovies</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>roleMemberMovies</servlet-name>
+     <url-pattern>/roleMemberMovies</url-pattern>
+  </servlet-mapping>
+  <servlet>
+     <servlet-name>moviePrice</servlet-name>
+     <servlet-class>moviePrice</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>moviePrice</servlet-name>
+     <url-pattern>/moviePrice</url-pattern>
+  </servlet-mapping>
+  <servlet>
+     <servlet-name>movieActorActress</servlet-name>
+     <servlet-class>movieActorActress</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>movieActorActress</servlet-name>
+     <url-pattern>/movieActorActress</url-pattern>
+  </servlet-mapping> 
+   <servlet>
+     <servlet-name>productionStatusList</servlet-name>
+     <servlet-class>productionStatusList</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>productionStatusList</servlet-name>
+     <url-pattern>/productionStatusList</url-pattern>
+  </servlet-mapping>
+   <servlet>
+     <servlet-name>movieYearReleasedList</servlet-name>
+     <servlet-class>movieYearReleasedList</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>movieYearReleasedList</servlet-name>
+     <url-pattern>/movieYearReleasedList</url-pattern>
+  </servlet-mapping>
+  <servlet>
+     <servlet-name>actressNoWorkWithProducer</servlet-name>
+     <servlet-class>actressNoWorkWithProducer</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>actressNoWorkWithProducer</servlet-name>
+     <url-pattern>/actressNoWorkWithProducer</url-pattern>
+  </servlet-mapping>
+   <servlet>
+     <servlet-name>maxEarner</servlet-name>
+     <servlet-class>maxEarner</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>maxEarner</servlet-name>
+     <url-pattern>/maxEarner</url-pattern>
+  </servlet-mapping>
+
+  
 
 </web-app>
