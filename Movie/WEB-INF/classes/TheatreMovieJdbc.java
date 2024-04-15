@@ -36,10 +36,10 @@ public class TheatreMovieJdbc extends HttpServlet {
 
 		query = "select t_m_id, t_m_start, t_m_end, m_ID, t_ID from theatremovie";
 
-		out.println("<html><head><title>Moive Table Report</title>");
+		out.println("<html><head><title>Movie Showing Table Report</title>");
 		out.println("</head><body>");
 
-		out.print("<br /><b><center><font color=\"RED\"><H2>Movie Table Report</H2></font>");
+		out.print("<br /><b><center><font color=\"RED\"><H2>Movie Showing Table Report</H2></font>");
 		out.println("</center><br />");
 		try {
 			result = state4.executeQuery(query);
