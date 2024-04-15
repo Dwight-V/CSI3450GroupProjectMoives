@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Find All Movies for a Role Member</title>
+</head>
+<body>
+    <h2>Find All Movies for a Role Member</h2>
+    <form method="post" action="/Movie/roleMemberMovies">
+        <p>Role ID: <font color = "#FF0000">*</font> <input type="number" name="role_id" size="12" required></p>
+        <p>Role Type: <select name = "role_name">
+            <option value = "Producer">Producer</option>
+            <option value = "Actor">Actor</option>
+            <option value = "Actress">Actress</option>
+            <option value = "Writer">Writer</option>
+            <option value = "Director">Director</option>
+        </select></p>
+        <p><input type="submit" value="Submit"> <input type="reset" value="Reset"></p>
+    </form>
+    <p><a href="/Movie/index.html">Go Back</a></p>
+</body>
+</html>
