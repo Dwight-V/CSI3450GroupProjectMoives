@@ -25,7 +25,7 @@ public class maxEarner extends HttpServlet
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver()); 
 
 			//Connects to the database
-            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "C##CSI3450", "johnRing19841");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "C##project", "project");
 	       	System.out.println("Congratulations! You are connected successfully.");      
      	}
         catch(SQLException e) {	
