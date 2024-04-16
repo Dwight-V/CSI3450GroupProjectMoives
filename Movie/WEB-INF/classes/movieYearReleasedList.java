@@ -20,8 +20,8 @@ public class movieYearReleasedList extends HttpServlet {
             Class.forName(driver);
 
             String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-            String user = "C##CSI3450";
-            String password = "johnRing19841";
+            String user = "C##project";
+            String password = "project";
 
             con = DriverManager.getConnection(url, user, password);
 
